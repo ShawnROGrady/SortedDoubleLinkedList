@@ -12,6 +12,13 @@
       1<-->2<-->3(original)<-->3(duplicate)<-->4<-->...
   -duplicate value will be removed from list before original
 
++For this program, I'm going to try to have functions be more "compartmentalized"
+  -have more functions perform more specific tasks
+  -I figured this would be a good way to learn more about functions, objects, and scope in JS
+    -additionally, this will make it easier to repurpose parts of this code for other programs
+  -hopefully will improve performance (at least marginally)
+    -try to perform least ammount of list traverses possible
+
 +End goal is to have user enter prompts (in main function) in order to perform the following functions:
   1. insert a value to the list
   2. remove a value from the list
