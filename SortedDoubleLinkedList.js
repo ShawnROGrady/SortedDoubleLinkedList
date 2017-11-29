@@ -30,11 +30,11 @@
   -insert values to the list
     -at beginning, middle, or end of the list
     -allow same value to appear in list up to twice
-  -print values in forward direction
+  -print values in forward direction+reverse direction
+    -switch between the two from inside the module via public API
   -search for value
 +Still need to add functionality for:
   -removing values from the list
-  -printing list in reverse direction
   -taking user input
 */
 
@@ -187,26 +187,60 @@ function sortedDLL(){
   function forwardPrint(){
     if(head.value!=null){
       //there are things in the list
-      var listString="List contains(in order): \r";  //will hold entirety of list as single string for simple printing
+      var forwardString="List contains(in order): \r";  //will hold entirety of list as single string for simple printing
 
       var tmp=head;
-      listString=listString+tmp.value+" \r "; //add value to string
+      forwardString=forwardString+tmp.value+" \r "; //add value to string
 
       //traverse list, adding values to string:
       while(tmp!=tail){
         tmp=tmp.nextNode;
-        listString=listString+tmp.value+" \r "; //add value to string
+        forwardString=forwardString+tmp.value+" \r "; //add value to string
       }
-      console.log(listString);
+      console.log(forwardString);
     }else{
       //list is empty
       console.log("list is empty");
     }
   }
 
+  function printReverse(){
+    if(tail.value!=null){
+      //things in queue
+      var reverseString="List contains(in reverse order): \r";
+
+      var tmp=tail;
+      reverseString=reverseString+tmp.value+" \r ";
+
+      while(tmp!=head){
+        tmp=tmp.prevNode;
+        reverseString=reverseString+tmp.value+" \r ";
+      }
+      console.log(reverseString);
+    }else{
+      console.log("list is empty");
+    }
+  }
+
+  function changePrint(direction){
+    if(direction=="forward"||direction=="f"||direction=="Forward"||direction=="F"){
+      publicAPI.print=forwardPrint;
+    }
+    else if(direction=="reverse"||direction=="r"||direction=="Reverse"||direction=="R"){
+      publicAPI.print=printReverse;
+    }
+    else{
+      alert("invalid input");
+    }
+
+  }
+
+
+
   var publicAPI={
     insert:doInsert,
-    print:forwardPrint
+    print:forwardPrint,  //forward by default
+    changePrint:changePrint
   };
   return publicAPI;
 
@@ -229,6 +263,10 @@ list.print(); //2, 6, 7, 8, 9
 list.insert(1);
 list.insert(0);
 list.print(); //0, 1, 2, 6, 7, 8, 9
+list.changePrint("reverse");
+list.print(); //9, 8, 7, 6, 2, 1, 0
+list.changePrint("forward");
+
 
 //testing if properly adds new middle nodes
 for(var i=3; i<6; i++){
@@ -247,3 +285,5 @@ for(var i=0; i<10; i++){
   list.insert(i); // will see message that 0, 5, and 9 cant be added
 }
 list.print(); //0, 0, 1, 1, 2, 2, ..., 9, 9
+list.changePrint("Reverse");
+list.print(); //9, 9, 8, 8, 7, 7, ..., 0, 0
