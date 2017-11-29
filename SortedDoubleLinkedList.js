@@ -19,6 +19,16 @@
   4. search the list for a specified value
   5. close the program
 
++I currently believe I can:
+  -insert values to the list
+    -at beginning, middle, or end of the list
+    -allow same value to appear in list up to twice
+  -print values in forward direction
+  -search for value
++Still need to add functionality for:
+  -removing values from the list
+  -printing list in reverse direction
+  -taking user input
 */
 
 //using strict mode for safety
