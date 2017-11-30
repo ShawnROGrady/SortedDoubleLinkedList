@@ -33,8 +33,9 @@
   -print values in forward direction+reverse direction
     -switch between the two from inside the module via public API
   -search for value
+  -remove values from list
+    -beginning, middle, or end
 +Still need to add functionality for:
-  -removing values from the list
   -taking user input
 */
 
@@ -145,16 +146,12 @@ function sortedDLL(){
     var canInsert=true;
     if(inList==true){
       //value we are adding is already in the list
-      console.log(tmp.value+ " already in list");
-      console.log(tmp.value+ " is duplicate? " + tmp.duplicate);
       if(tmp.duplicate==true){
         //there is already a duplicate of that value in the list
-        //console.log(newNode.value+" cannot be added to the list because it already appears twice");
         console.log("not safe");
         canInsert=false;
       }else{
         newNode.setDuplicate(true);
-        console.log("duplicate flag raised");
       }
     }else{
       //node.setDuplicate(false);
@@ -180,6 +177,57 @@ function sortedDLL(){
     newNode.setPrevNode(left);
     right.setPrevNode(newNode);
     newNode.setNextNode(right);
+  }
+
+  function doRemove(input){
+    if(head.value!=null){
+      //things are in list
+      var search=doSearch(input);
+      if(search.found==true){
+        //value is in the list
+        var last=isLast();
+        if(last==true){
+          lastRemove();
+        }else{
+          if(search.tmp==head){
+            //removing head node
+            head=head.nextNode;
+          }
+          else if(search.tmp==tail){
+            //removing tail node
+            tail=tail.prevNode;
+          }else{
+            //middle node
+            middleRemove(search.tmp);
+          }
+        }
+        console.log(input+" has been removed from the list");
+      }else{
+        console.log(input+" is not in the list");
+      }
+    }else{
+      console.log("nothing in list, cannot remove an item");
+    }
+  }
+
+  function middleRemove(node){
+    node.prevNode.setNextNode(node.nextNode);
+    node.nextNode.setPrevNode(node.prevNode);
+  }
+
+  function lastRemove(){
+    //essentially reset the list
+    head=dllNode();
+    tail=dllNode();
+  }
+
+  //helper function which checks if there is more than one item in the list
+  function isLast(){
+    var last=false;
+    if(head==tail){
+      last=true;
+    }
+    return last;
   }
 
 
@@ -240,7 +288,8 @@ function sortedDLL(){
   var publicAPI={
     insert:doInsert,
     print:forwardPrint,  //forward by default
-    changePrint:changePrint
+    changePrint:changePrint,
+    remove:doRemove
   };
   return publicAPI;
 
@@ -287,3 +336,42 @@ for(var i=0; i<10; i++){
 list.print(); //0, 0, 1, 1, 2, 2, ..., 9, 9
 list.changePrint("Reverse");
 list.print(); //9, 9, 8, 8, 7, 7, ..., 0, 0
+list.changePrint("Forward");
+
+//testing if properly removes tail
+list.remove(9);
+list.print();//0, 0, 1, 1, 2, 2, ..., 8, 8, 9
+list.changePrint("Reverse");
+list.print(); // 9, 8, 8, 7, 7, ..., 0, 0
+list.changePrint("Forward");
+
+//testing if properly removes head:
+list.remove(0);
+list.print(); //0, 1, 1, 2, 2, ..., 8, 8, 9
+
+//testing if properly can add new head+tail w/o duplicate warnings:
+list.insert(0);
+list.insert(9);
+list.print(); //0, 0, 1, 1, 2, 2, ..., 9, 9
+
+//testing to see if we can remove middle nodes:
+for(var i=0; i<10; i++){
+  list.remove(i);
+}
+list.print();  //0, 1, 2, 3, ..., 9
+
+//testing if can add new nodes w/o duplicate warnings
+for(var i=0; i<10; i++){
+  list.insert(i);
+}
+list.print(); //0, 0, 1, 1, 2, 2, ..., 9, 9
+
+//emptying list:
+for(var i=0; i<10; i++){
+  list.remove(i);
+}
+for(var i=0; i<10; i++){
+  list.remove(i);
+}
+list.remove(1); //list is empty
+list.print(); //list is empty
