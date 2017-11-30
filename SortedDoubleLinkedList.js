@@ -35,7 +35,7 @@
   -search for value
   -remove values from list
     -beginning, middle, or end
-  -taking user input
+  -from user input
 */
 
 //using strict mode for safety
