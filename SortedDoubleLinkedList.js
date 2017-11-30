@@ -35,8 +35,7 @@
   -search for value
   -remove values from list
     -beginning, middle, or end
-+Still need to add functionality for:
-  -taking user input
+  -from user input
 */
 
 //using strict mode for safety
