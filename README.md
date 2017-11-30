@@ -18,4 +18,10 @@ My end goal is to implement a doubly linked list that takes user input to perfor
 4. search the list for a specific value
 5. close the program
 
+Along with this README file, this repository contains:
+  1. a JavaScript file with the entire implementation of the sorted dll list (SortedDoubleLinkedList.js)
+  2. an html file to run said JavaScript file (SortedDoubleLinkedList.html)
+    
+    -I plan to expand on this when I get the chance to learn more about html
+ 
 This program is intended for personal education, and I plan on updating it as I learn more 
