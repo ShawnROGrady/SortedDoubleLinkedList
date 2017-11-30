@@ -113,14 +113,17 @@ function sortedDLL(){
       //list is empty
       headInsert(newNode);
       tailInsert(newNode);
+      alert(input+" was inserted in to the list");
     }
     else if(input<head.value){
       //new head node
       headInsert(newNode);
+      alert(input+" was inserted in to the list");
     }
     else if(input>tail.value){
       //new tail node
       tailInsert(newNode);
+      alert(input+" was inserted in to the list");
     }
     else{
       //new middle node OR duplicate of tail node
@@ -128,7 +131,7 @@ function sortedDLL(){
       var safe=checkDuplicate(search.tmp, newNode, search.found);
 
       if(safe==true){
-        console.log(input+" was inserted in to the list");
+        alert(input+" was inserted in to the list");
         if(search.tmp==tail){
           //adding duplicate of tail
           tailInsert(newNode);
@@ -137,7 +140,7 @@ function sortedDLL(){
           middleInsert(newNode, search.tmp);
         }
       }else{
-        console.log(input+" cannot be added to the list because it already appears twice");
+        alert(input+" cannot be added to the list because it already appears twice");
       }
     }
   }
@@ -148,7 +151,6 @@ function sortedDLL(){
       //value we are adding is already in the list
       if(tmp.duplicate==true){
         //there is already a duplicate of that value in the list
-        console.log("not safe");
         canInsert=false;
       }else{
         newNode.setDuplicate(true);
@@ -201,12 +203,12 @@ function sortedDLL(){
             middleRemove(search.tmp);
           }
         }
-        console.log(input+" has been removed from the list");
+        alert(input+" has been removed from the list");
       }else{
-        console.log(input+" is not in the list");
+        alert(input+" is not in the list");
       }
     }else{
-      console.log("nothing in list, cannot remove an item");
+      alert("nothing in list, cannot remove an item");
     }
   }
 
@@ -235,7 +237,7 @@ function sortedDLL(){
   function forwardPrint(){
     if(head.value!=null){
       //there are things in the list
-      var forwardString="List contains(in order): \r";  //will hold entirety of list as single string for simple printing
+      var forwardString="List contains(in order): \r ";  //will hold entirety of list as single string for simple printing
 
       var tmp=head;
       forwardString=forwardString+tmp.value+" \r "; //add value to string
@@ -245,10 +247,10 @@ function sortedDLL(){
         tmp=tmp.nextNode;
         forwardString=forwardString+tmp.value+" \r "; //add value to string
       }
-      console.log(forwardString);
+      alert(forwardString);
     }else{
       //list is empty
-      console.log("list is empty");
+      alert("list is empty");
     }
   }
 
@@ -264,9 +266,9 @@ function sortedDLL(){
         tmp=tmp.prevNode;
         reverseString=reverseString+tmp.value+" \r ";
       }
-      console.log(reverseString);
+      alert(reverseString);
     }else{
-      console.log("list is empty");
+      alert("list is empty");
     }
   }
 
@@ -289,12 +291,60 @@ function sortedDLL(){
     insert:doInsert,
     print:forwardPrint,  //forward by default
     changePrint:changePrint,
-    remove:doRemove
+    remove:doRemove,
+    search:doSearch
   };
   return publicAPI;
 
 }
 
+//main function:
+(function main(){
+  var list=sortedDLL();
+  var choice;
+  var userInput;
+  do{
+    choice=prompt("What would you like to do? \r 1. insert a value to the list \r 2. remove a value from the list \r 3. print the list \r 4. search the list \r 5. terminate program");
+    if(choice==1){
+      //insert value
+      userInput=prompt("enter a value to add to the list");
+      list.insert(Number(userInput));
+    }
+    else if(choice==2){
+      //remove a value
+      userInput=prompt("enter a value to remove from the list");
+      list.remove(Number(userInput));
+    }
+    else if(choice==3){
+      //print list
+      var dir=prompt("which direction do you wish to print (\"forward\" or \"reverse\")?");
+      list.changePrint(dir);
+      list.print();
+    }
+    else if(choice==4){
+      //search the list
+      userInput=prompt("enter a value to search for");
+      if(list.search(Number(userInput)).found){
+        //value was in list
+        alert(userInput+" is in the list");
+      }else{
+        //not in list
+        alert(userInput+" is not in the list");
+      }
+    }
+    else if(choice==5||choice==null){
+      //close program
+      alert("thank you for using this program");
+    }
+    else{
+      //invalid choice
+      alert("please enter a valid choice");
+
+    }
+  }while(choice!=5 && choice!=null);
+})();
+
+/*
 //testing basic functionality:
 var list=sortedDLL();
 list.print(); //"list is empty"
@@ -375,3 +425,9 @@ for(var i=0; i<10; i++){
 }
 list.remove(1); //list is empty
 list.print(); //list is empty
+//testing if properly refills:
+for(var i=10; i<20; i++){
+  list.insert(i);
+}
+list.print(); //10, 11, 12, ..., 19
+*/
