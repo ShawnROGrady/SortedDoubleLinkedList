@@ -22,11 +22,18 @@
         Enter a value to search for <br>
         <input type='text'><input type='button'  id='searchEnter' value='search'>
       </form>
+      <form id="printList" action="">
+        Which direction do you wish to print in? <br>
+        <input type="radio" name="direction" value="fwd"> Forward<br>
+        <input type="radio" name="direction" value="rev"> Reverse<br>
+        <input type='button'  id='printEnter' value='print'>
+      </form>
       <script>
         document.getElementById('frm1').style.visibility='hidden';
         document.getElementById('addNode').style.visibility='hidden';
         document.getElementById('removeNode').style.visibility='hidden';
         document.getElementById('searchNode').style.visibility='hidden';
+        document.getElementById('printList').style.visibility='hidden';
       </script>
       <script type="module" src="scripts/main.js"></script>
     </body>
