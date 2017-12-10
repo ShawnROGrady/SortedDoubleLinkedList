@@ -9,7 +9,6 @@ For the sake of simplicity, I am only considering the case where all items in th
 
 Additionally, I plan on allowing each value to appear in the list up to two times. I figured that it would be good practice to write a program that required setting/checking a "duplicate" flag.
 
-
 My end goal is to implement a doubly linked list that takes user input to perform the following five functions:
 
 1. insert a value
@@ -26,3 +25,5 @@ Along with this README file, this repository contains:
     * SortedDoubleLinkedList.js which is not actually used, but can be easily copy/pasted to the console for testing
  
 This program is intended for personal education, and I plan on updating it as I learn more 
+
+I have been testing this program in **Google Chrome(Version 63.0.3239.84)** using a local testing server. Local server was set up using Python's SimpleHTTPServer module. This program makes use of module features added in ES6, so it may not run in older browsers.
