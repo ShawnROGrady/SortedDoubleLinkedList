@@ -10,8 +10,8 @@
   +Currently I can perform the following via webpage forms:
     -have the user chose which function to perform
     -insert a value to the list
+    -remove a value from the list
   +The following are still done via alert() pop ups
-    -remove a value
     -print the List
     -searfh the list
 */
@@ -25,7 +25,7 @@ var list= sortedDLL();  //the sorted doubly linked list
 var startButton = document.getElementById('start');
 var choiceButton=document.getElementById('enter');
 var insertButton=document.getElementById("insertEnter");
-
+var removeButton=document.getElementById("removeEnter");
 
 startButton.onclick = function() {
   startButton.style.visibility="hidden";
@@ -46,8 +46,7 @@ choiceButton.onclick=function main(){
   }
   else if(choice==2){
     //remove a value
-    userInput=prompt("enter a value to remove from the list");
-    list.remove(Number(userInput));
+    removeHandler();
   }
   else if(choice==3){
     //print list
@@ -78,8 +77,11 @@ choiceButton.onclick=function main(){
 }
 
 function addHandler(){
-  alert("hello");
+  //alert("hello");
   document.getElementById("addNode").style.visibility="visible";
+}
+function removeHandler(){
+  document.getElementById("removeNode").style.visibility="visible";
 }
 
 insertButton.onclick=function(){
@@ -87,5 +89,13 @@ insertButton.onclick=function(){
   var userInput=insert.elements[0].value;
   list.insert(Number(userInput));
   document.getElementById("addNode").style.visibility="hidden";  //hide add form
+  document.getElementById("frm1").style.visibility="visible"; //make main form visible again
+}
+
+removeButton.onclick=function(){
+  var remove=document.getElementById('removeNode');
+  var userInput=remove.elements[0].value;
+  list.remove(Number(userInput));
+  document.getElementById("removeNode").style.visibility="hidden";  //hide remove form
   document.getElementById("frm1").style.visibility="visible"; //make main form visible again
 }
