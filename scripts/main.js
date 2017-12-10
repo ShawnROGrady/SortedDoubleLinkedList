@@ -1,14 +1,38 @@
+/*
+  This file is responsible for taking the user input
+*/
 //using strict mode for safety
 "use strict";
 import {sortedDLL} from "./sortedDLL.js";
 
+
 //main function:
-(function main(){
+
+var startButton = document.getElementById('start');
+var choiceButton=document.getElementById('enter');
+//choiceButton.style.visibility="none";
+
+//var number=document.querySelector('form');
+//number.style.visibility="none";
+
+startButton.onclick = function() {
+  startButton.style.visibility="hidden";
+  document.getElementById("frm1").style.visibility="visible";
+}
+
+choiceButton.onclick=function(){
+  var x=document.getElementById("frm1");
+  var choice=x.elements[0].value
+  alert(choice);
+}
+
+function main(){
   var list= sortedDLL();
-  var choice;
+  var choice=document.getElementById('form');
+  alert(choice);
   var userInput;
   do{
-    choice=prompt("What would you like to do? \r 1. insert a value to the list \r 2. remove a value from the list \r 3. print the list \r 4. search the list \r 5. terminate program");
+    //choice=prompt("What would you like to do? \r 1. insert a value to the list \r 2. remove a value from the list \r 3. print the list \r 4. search the list \r 5. terminate program");
     if(choice==1){
       //insert value
       userInput=prompt("enter a value to add to the list");
@@ -46,4 +70,4 @@ import {sortedDLL} from "./sortedDLL.js";
 
     }
   }while(choice!=5 && choice!=null);
-})();
+};
