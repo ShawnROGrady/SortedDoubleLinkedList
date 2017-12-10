@@ -11,9 +11,9 @@
     -have the user chose which function to perform
     -insert a value to the list
     -remove a value from the list
+    -search the list for a specifc value
   +The following are still done via alert() pop ups
     -print the List
-    -searfh the list
 */
 //using strict mode for safety
 "use strict";
@@ -26,6 +26,7 @@ var startButton = document.getElementById('start');
 var choiceButton=document.getElementById('enter');
 var insertButton=document.getElementById("insertEnter");
 var removeButton=document.getElementById("removeEnter");
+var searchButton=document.getElementById("searchEnter");
 
 startButton.onclick = function() {
   startButton.style.visibility="hidden";
@@ -56,14 +57,7 @@ choiceButton.onclick=function main(){
   }
   else if(choice==4){
     //search the list
-    userInput=prompt("enter a value to search for");
-    if(list.search(Number(userInput)).found){
-      //value was in list
-      alert(userInput+" is in the list");
-    }else{
-      //not in list
-      alert(userInput+" is not in the list");
-    }
+    searchHandler();
   }
   else if(choice==5||choice==null){
     //close program
@@ -83,6 +77,9 @@ function addHandler(){
 function removeHandler(){
   document.getElementById("removeNode").style.visibility="visible";
 }
+function searchHandler(){
+  document.getElementById("searchNode").style.visibility="visible";
+}
 
 insertButton.onclick=function(){
   var insert=document.getElementById('addNode');
@@ -97,5 +94,19 @@ removeButton.onclick=function(){
   var userInput=remove.elements[0].value;
   list.remove(Number(userInput));
   document.getElementById("removeNode").style.visibility="hidden";  //hide remove form
+  document.getElementById("frm1").style.visibility="visible"; //make main form visible again
+}
+
+searchButton.onclick=function(){
+  var search=document.getElementById('searchNode');
+  var userInput=search.elements[0].value;
+  if(list.search(Number(userInput)).found){
+    //value was in list
+    alert(userInput+" is in the list");
+  }else{
+    //not in list
+    alert(userInput+" is not in the list");
+  }
+  document.getElementById("searchNode").style.visibility="hidden";  //hide remove form
   document.getElementById("frm1").style.visibility="visible"; //make main form visible again
 }
