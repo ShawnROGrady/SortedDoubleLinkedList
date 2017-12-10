@@ -86,6 +86,6 @@ insertButton.onclick=function(){
   var insert=document.getElementById('addNode');
   var userInput=insert.elements[0].value;
   list.insert(Number(userInput));
-  document.getElementById("addNode").style.visibility="none";  //hide add form
+  document.getElementById("addNode").style.visibility="hidden";  //hide add form
   document.getElementById("frm1").style.visibility="visible"; //make main form visible again
 }
