@@ -6,7 +6,7 @@
       <h2>Click button below to start</h2>
       <button id="start">Start</button>
       <p></p>
-      <form id="frm1"  action="/action_page.php">
+      <form id="frm1"  action="">
         What would you like to do? <br> 1. insert a value to the list <br> 2. remove a value from the list <br> 3. print the list <br> 4. search the list <br> 5. terminate program
          <input type='number' name='quantity' min='1' max='5'><input type='button'  id='enter' value='enter'>
       </form>
@@ -14,9 +14,14 @@
         Enter a value to add to the list <br>
         <input type='text'><input type='button'  id='insertEnter' value='insert'>
       </form>
+      <form id="removeNode" action="">
+        Enter a value to remove from the list <br>
+        <input type='text'><input type='button'  id='removeEnter' value='remove'>
+      </form>
       <script>
         document.getElementById('frm1').style.visibility='hidden';
         document.getElementById('addNode').style.visibility='hidden';
+        document.getElementById('removeNode').style.visibility='hidden';
       </script>
       <script type="module" src="scripts/main.js"></script>
     </body>
