@@ -19,9 +19,10 @@ My end goal is to implement a doubly linked list that takes user input to perfor
 5. close the program
 
 Along with this README file, this repository contains:
-  1. a JavaScript file with the entire implementation of the sorted dll list (SortedDoubleLinkedList.js)
-  2. an html file to run said JavaScript file (SortedDoubleLinkedList.html)
-    
-    -I plan to expand on this when I get the chance to learn more about html
+  1. an html file to run JavaScript files and provide forms to take user input
+  2. a folder named scripts which contains the following JavaScript files:
+    * sortedDLL.js which contains the implementation of the sorted doubly linked list data structure
+    * main.js which handles all user input
+    * SortedDoubleLinkedList.js which is not actually used, but can be easily copy/pasted to the console for testing
  
 This program is intended for personal education, and I plan on updating it as I learn more 

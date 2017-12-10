@@ -1,5 +1,40 @@
 <html>
     <head>
-        <script src="SortedDoubleLinkedList.js"></script>
     </head>
+    <body>
+      <h1>Sorted Doubly Linked List</h1>
+      <h2>Click button below to start</h2>
+      <button id="start">Start</button>
+      <p></p>
+      <form id="frm1"  action="">
+        What would you like to do? <br> 1. insert a value to the list <br> 2. remove a value from the list <br> 3. print the list <br> 4. search the list <br> 5. terminate program
+         <input type='number' name='quantity' min='1' max='5'><input type='button'  id='enter' value='enter'>
+      </form>
+      <form id="addNode" action="">
+        Enter a value to add to the list <br>
+        <input type='text'><input type='button'  id='insertEnter' value='insert'>
+      </form>
+      <form id="removeNode" action="">
+        Enter a value to remove from the list <br>
+        <input type='text'><input type='button'  id='removeEnter' value='remove'>
+      </form>
+      <form id="searchNode" action="">
+        Enter a value to search for <br>
+        <input type='text'><input type='button'  id='searchEnter' value='search'>
+      </form>
+      <form id="printList" action="">
+        Which direction do you wish to print in? <br>
+        <input type="radio" name="direction" value="fwd"> Forward<br>
+        <input type="radio" name="direction" value="rev"> Reverse<br>
+        <input type='button'  id='printEnter' value='print'>
+      </form>
+      <script>
+        document.getElementById('frm1').style.visibility='hidden';
+        document.getElementById('addNode').style.visibility='hidden';
+        document.getElementById('removeNode').style.visibility='hidden';
+        document.getElementById('searchNode').style.visibility='hidden';
+        document.getElementById('printList').style.visibility='hidden';
+      </script>
+      <script type="module" src="scripts/main.js"></script>
+    </body>
 </html>
