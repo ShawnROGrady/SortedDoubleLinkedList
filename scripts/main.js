@@ -12,8 +12,11 @@
     -insert a value to the list
     -remove a value from the list
     -search the list for a specifc value
-  +The following are still done via alert() pop ups
     -print the List
+  +Still need to:
+    -clean up the interface
+    -reduce # of alerts:
+      -i.e. when printing the list actually print the list to the webpage
 */
 //using strict mode for safety
 "use strict";
@@ -27,6 +30,7 @@ var choiceButton=document.getElementById('enter');
 var insertButton=document.getElementById("insertEnter");
 var removeButton=document.getElementById("removeEnter");
 var searchButton=document.getElementById("searchEnter");
+var printButton=document.getElementById("printEnter");
 
 startButton.onclick = function() {
   startButton.style.visibility="hidden";
@@ -37,7 +41,7 @@ choiceButton.onclick=function main(){
   var userInput;
   var x=document.getElementById("frm1");
   var choice=x.elements[0].value;
-  alert(choice);
+  //alert(choice);
   document.getElementById("frm1").style.visibility="hidden";
 
   var userInput;
@@ -51,9 +55,7 @@ choiceButton.onclick=function main(){
   }
   else if(choice==3){
     //print list
-    var dir=prompt("which direction do you wish to print (\"forward\" or \"reverse\")?");
-    list.changePrint(dir);
-    list.print();
+    printHandler();
   }
   else if(choice==4){
     //search the list
@@ -66,7 +68,6 @@ choiceButton.onclick=function main(){
   else{
     //invalid choice
     alert("please enter a valid choice");
-
   }
 }
 
@@ -79,6 +80,9 @@ function removeHandler(){
 }
 function searchHandler(){
   document.getElementById("searchNode").style.visibility="visible";
+}
+function printHandler(){
+  document.getElementById("printList").style.visibility="visible";
 }
 
 insertButton.onclick=function(){
@@ -107,6 +111,26 @@ searchButton.onclick=function(){
     //not in list
     alert(userInput+" is not in the list");
   }
-  document.getElementById("searchNode").style.visibility="hidden";  //hide remove form
+  document.getElementById("searchNode").style.visibility="hidden";  //hide search form
+  document.getElementById("frm1").style.visibility="visible"; //make main form visible again
+}
+
+printButton.onclick=function(){
+  var print=document.getElementById('printList');
+  if(print.elements[0].checked){
+    //forward button pressed
+    list.changePrint("forward");
+    list.print();
+  }
+  else if(print.elements[1].checked){
+    //reverse button pressed
+    list.changePrint("reverse");
+    list.print();
+  }
+  else{
+    //user did not press either button
+    alert("please select a direction");
+  }
+  document.getElementById("printList").style.visibility="hidden";  //hide print form
   document.getElementById("frm1").style.visibility="visible"; //make main form visible again
 }
