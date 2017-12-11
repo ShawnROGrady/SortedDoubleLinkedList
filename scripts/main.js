@@ -70,10 +70,10 @@ choiceButton.onclick=function main(){
   else{
     //invalid choice
     /*
-    I'm leaving this in here in case I decide to add more functionality
-    currently this will never execute since "choice" is taken from input type number with min=1 max=5
+    This currently only executes if user doesn't enter anything to initial form
     */
     alert("please enter a valid choice");
+    document.getElementById("frm1").style.display="block"; //make main form visible again
   }
 }
 
