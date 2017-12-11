@@ -27,6 +27,7 @@ var list= sortedDLL();  //the sorted doubly linked list
 var startButton = document.getElementById('start');
 var choiceButton=document.getElementById('enter');
 var insertButton=document.getElementById("insertEnter");
+var insertBackButton=document.getElementById("insertBack");
 var removeButton=document.getElementById("removeEnter");
 var searchButton=document.getElementById("searchEnter");
 var printButton=document.getElementById("printEnter");
@@ -160,5 +161,10 @@ printButton.onclick=function(){
 
 hideButton.onclick=function(){
   document.getElementById("showList").style.display="none";  //hide form shwing the list
+  document.getElementById("frm1").style.display="block"; //make main form visible again
+}
+
+insertBackButton.onclick=function(){
+  document.getElementById("addNode").style.display="none";  //hide add form
   document.getElementById("frm1").style.display="block"; //make main form visible again
 }
