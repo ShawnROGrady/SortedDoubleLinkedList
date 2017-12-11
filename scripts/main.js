@@ -35,6 +35,7 @@ var printButton=document.getElementById("printEnter");
 
 startButton.onclick = function() {
   startButton.style.display="none";
+  document.querySelector('h2').style.display="none"; //hide initial instruction
   document.getElementById("frm1").style.visibility="visible";
 }
 
@@ -67,6 +68,10 @@ choiceButton.onclick=function main(){
   }
   else{
     //invalid choice
+    /*
+    I'm leaving this in here in case I decide to add more functionality
+    currently this will never execute since "choice" is taken from input type number with min=1 max=5
+    */
     alert("please enter a valid choice");
   }
 }
