@@ -207,7 +207,7 @@ export function sortedDLL(){
       return forwardString;
     }else{
       //list is empty
-      alert("list is empty");
+      return "list is empty";
     }
   }
 
@@ -226,7 +226,7 @@ export function sortedDLL(){
       //alert(reverseString);
       return reverseString;
     }else{
-      alert("list is empty");
+      return "list is empty";
     }
   }
 
