@@ -65,38 +65,43 @@ export function sortedDLL(){
   function doInsert(input){
     var newNode= dllNode();
     newNode.setValue(input);
-    if(tail.value==null){
-      //list is empty
-      headInsert(newNode);
-      tailInsert(newNode);
-      alert(input+" was inserted in to the list");
-    }
-    else if(input<head.value){
-      //new head node
-      headInsert(newNode);
-      alert(input+" was inserted in to the list");
-    }
-    else if(input>tail.value){
-      //new tail node
-      tailInsert(newNode);
-      alert(input+" was inserted in to the list");
+    if(isNaN(input)){
+      alert("list only accepts numerical values");
     }
     else{
-      //new middle node OR duplicate of tail node
-      var search=doSearch(input);
-      var safe=checkDuplicate(search.tmp, newNode, search.found);
-
-      if(safe==true){
+      if(tail.value==null){
+        //list is empty
+        headInsert(newNode);
+        tailInsert(newNode);
         alert(input+" was inserted in to the list");
-        if(search.tmp==tail){
-          //adding duplicate of tail
-          tailInsert(newNode);
+      }
+      else if(input<head.value){
+        //new head node
+        headInsert(newNode);
+        alert(input+" was inserted in to the list");
+      }
+      else if(input>tail.value){
+        //new tail node
+        tailInsert(newNode);
+        alert(input+" was inserted in to the list");
+      }
+      else{
+        //new middle node OR duplicate of tail node
+        var search=doSearch(input);
+        var safe=checkDuplicate(search.tmp, newNode, search.found);
+
+        if(safe==true){
+          alert(input+" was inserted in to the list");
+          if(search.tmp==tail){
+            //adding duplicate of tail
+            tailInsert(newNode);
+          }else{
+            //middle node
+            middleInsert(newNode, search.tmp);
+          }
         }else{
-          //middle node
-          middleInsert(newNode, search.tmp);
+          alert(input+" cannot be added to the list because it already appears twice");
         }
-      }else{
-        alert(input+" cannot be added to the list because it already appears twice");
       }
     }
   }
@@ -207,7 +212,7 @@ export function sortedDLL(){
       return forwardString;
     }else{
       //list is empty
-      alert("list is empty");
+      return "list is empty";
     }
   }
 
@@ -226,7 +231,7 @@ export function sortedDLL(){
       //alert(reverseString);
       return reverseString;
     }else{
-      alert("list is empty");
+      return "list is empty";
     }
   }
 
