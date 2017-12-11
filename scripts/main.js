@@ -126,20 +126,25 @@ searchButton.onclick=function(){
 
 printButton.onclick=function(){
   var print=document.getElementById('printList');
+  var listContents; //this is a string, returned by the print function
   if(print.elements[0].checked){
     //forward button pressed
+    document.getElementById("showList").style.display="block";
     list.changePrint("forward");
-    list.print();
+    listContents=list.print();
+    document.getElementById("printedList").innerHTML=listContents;
   }
   else if(print.elements[1].checked){
     //reverse button pressed
     list.changePrint("reverse");
     list.print();
+
   }
   else{
     //user did not press either button
     alert("please select a direction");
   }
+  //document.getElementByID("printedList").style.display="none";
   document.getElementById("printList").style.display="none";  //hide print form
   document.getElementById("frm1").style.display="block"; //make main form visible again
 }
