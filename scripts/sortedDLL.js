@@ -1,6 +1,5 @@
-//using strict mode for safety
-//"use strict";
-//import {dllNode} from "./dllNode.js";
+//Code by Shawn O'Grady
+
 function dllNode(){
 
   var value, prevNode, nextNode;
@@ -194,17 +193,18 @@ export function sortedDLL(){
   function forwardPrint(){
     if(head.value!=null){
       //there are things in the list
-      var forwardString="List contains(in order): \r ";  //will hold entirety of list as single string for simple printing
+      var forwardString="List contains(in order):<br>";  //will hold entirety of list as single string for simple printing
 
       var tmp=head;
-      forwardString=forwardString+tmp.value+" \r "; //add value to string
+      forwardString=forwardString+tmp.value+"<br>"; //add value to string
 
       //traverse list, adding values to string:
       while(tmp!=tail){
         tmp=tmp.nextNode;
-        forwardString=forwardString+tmp.value+" \r "; //add value to string
+        forwardString=forwardString+tmp.value+"<br>"; //add value to string
       }
-      alert(forwardString);
+      //alert(forwardString);
+      return forwardString;
     }else{
       //list is empty
       alert("list is empty");
@@ -214,16 +214,17 @@ export function sortedDLL(){
   function printReverse(){
     if(tail.value!=null){
       //things in queue
-      var reverseString="List contains(in reverse order): \r";
+      var reverseString="List contains(in reverse order):<br>";
 
       var tmp=tail;
-      reverseString=reverseString+tmp.value+" \r ";
+      reverseString=reverseString+tmp.value+"<br>";
 
       while(tmp!=head){
         tmp=tmp.prevNode;
-        reverseString=reverseString+tmp.value+" \r ";
+        reverseString=reverseString+tmp.value+"<br>";
       }
-      alert(reverseString);
+      //alert(reverseString);
+      return reverseString;
     }else{
       alert("list is empty");
     }
