@@ -32,6 +32,7 @@ var insertButton=document.getElementById("insertEnter");
 var removeButton=document.getElementById("removeEnter");
 var searchButton=document.getElementById("searchEnter");
 var printButton=document.getElementById("printEnter");
+var hideButton=document.getElementById("hidePrint");
 
 startButton.onclick = function() {
   startButton.style.display="none";
@@ -147,5 +148,10 @@ printButton.onclick=function(){
   }
   //document.getElementByID("printedList").style.display="none";
   document.getElementById("printList").style.display="none";  //hide print form
+  //document.getElementById("frm1").style.display="block"; //make main form visible again
+}
+
+hideButton.onclick=function(){
+  document.getElementById("showList").style.display="none";  //hide form shwing the list
   document.getElementById("frm1").style.display="block"; //make main form visible again
 }
