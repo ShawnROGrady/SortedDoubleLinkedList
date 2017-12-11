@@ -65,7 +65,7 @@ choiceButton.onclick=function main(){
   }
   else if(choice==5||choice==null){
     //close program
-    alert("thank you for using this program");
+    terminateHandler();
   }
   else{
     //invalid choice
@@ -93,6 +93,11 @@ function searchHandler(){
 function printHandler(){
   document.getElementById("printList").style.visibility="visible";
   document.getElementById("printList").style.display="block";
+}
+function terminateHandler(){
+  //just display goodbye message
+  document.getElementById("goodbye").style.visibility="visible";
+  document.getElementById("goodbye").style.display="block";
 }
 
 insertButton.onclick=function(){
