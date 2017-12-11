@@ -24,7 +24,9 @@
       </p>
       <h2>Click button below to start</h2>
       <button id="start">Start</button>
-      <p></p>
+      <p id="goodbye">
+        Thank you for using this program!
+      </p>
       <form id="frm1"  action="">
         What would you like to do? <br>
         1. insert a value to the list <br> 2. remove a value from the list <br> 3. print the list <br> 4. search the list <br> 5. terminate program<br>
@@ -59,6 +61,7 @@
         document.getElementById('searchNode').style.display="none";
         document.getElementById('printList').style.display="none";
         document.getElementById('showList').style.display="none";
+        document.getElementById('goodbye').style.display="none";
       </script>
       <script type="module" src="scripts/main.js"></script>
     </body>
