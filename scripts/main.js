@@ -26,10 +26,18 @@ var list= sortedDLL();  //the sorted doubly linked list
 //the various buttons:
 var startButton = document.getElementById('start');
 var choiceButton=document.getElementById('enter');
+
 var insertButton=document.getElementById("insertEnter");
+var insertBackButton=document.getElementById("insertBack");
+
 var removeButton=document.getElementById("removeEnter");
+var removeBackButton=document.getElementById("removeBack");
+
 var searchButton=document.getElementById("searchEnter");
+var searchBackButton=document.getElementById("searchBack");
+
 var printButton=document.getElementById("printEnter");
+var printBackButton=document.getElementById("printBack");
 var hideButton=document.getElementById("hidePrint");
 
 startButton.onclick = function() {
@@ -160,5 +168,22 @@ printButton.onclick=function(){
 
 hideButton.onclick=function(){
   document.getElementById("showList").style.display="none";  //hide form shwing the list
+  document.getElementById("frm1").style.display="block"; //make main form visible again
+}
+
+insertBackButton.onclick=function(){
+  document.getElementById("addNode").style.display="none";  //hide add form
+  document.getElementById("frm1").style.display="block"; //make main form visible again
+}
+removeBackButton.onclick=function(){
+  document.getElementById("removeNode").style.display="none";  //hide add form
+  document.getElementById("frm1").style.display="block"; //make main form visible again
+}
+searchBackButton.onclick=function(){
+  document.getElementById("searchNode").style.display="none";  //hide add form
+  document.getElementById("frm1").style.display="block"; //make main form visible again
+}
+printBackButton.onclick=function(){
+  document.getElementById("printList").style.display="none";  //hide add form
   document.getElementById("frm1").style.display="block"; //make main form visible again
 }
