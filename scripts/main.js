@@ -15,8 +15,6 @@
     -print the List
   +Still need to:
     -clean up the interface
-    -reduce # of alerts:
-      -i.e. when printing the list actually print the list to the webpage
 */
 //using strict mode for safety
 "use strict";
