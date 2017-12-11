@@ -214,16 +214,17 @@ export function sortedDLL(){
   function printReverse(){
     if(tail.value!=null){
       //things in queue
-      var reverseString="List contains(in reverse order): \r";
+      var reverseString="List contains(in reverse order):<br>";
 
       var tmp=tail;
-      reverseString=reverseString+tmp.value+" \r ";
+      reverseString=reverseString+tmp.value+"<br>";
 
       while(tmp!=head){
         tmp=tmp.prevNode;
-        reverseString=reverseString+tmp.value+" \r ";
+        reverseString=reverseString+tmp.value+"<br>";
       }
-      alert(reverseString);
+      //alert(reverseString);
+      return reverseString;
     }else{
       alert("list is empty");
     }
