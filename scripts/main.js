@@ -136,9 +136,10 @@ printButton.onclick=function(){
   }
   else if(print.elements[1].checked){
     //reverse button pressed
+    document.getElementById("showList").style.display="block";
     list.changePrint("reverse");
-    list.print();
-
+    listContents=list.print();
+    document.getElementById("printedList").innerHTML=listContents;
   }
   else{
     //user did not press either button
