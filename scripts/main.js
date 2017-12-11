@@ -70,10 +70,10 @@ choiceButton.onclick=function main(){
   else{
     //invalid choice
     /*
-    I'm leaving this in here in case I decide to add more functionality
-    currently this will never execute since "choice" is taken from input type number with min=1 max=5
+    This currently only executes if user doesn't enter anything to initial form
     */
     alert("please enter a valid choice");
+    document.getElementById("frm1").style.display="block"; //make main form visible again
   }
 }
 
@@ -139,6 +139,7 @@ printButton.onclick=function(){
     list.changePrint("forward");
     listContents=list.print();
     document.getElementById("printedList").innerHTML=listContents;
+    document.getElementById("printList").style.display="none";  //hide print form
   }
   else if(print.elements[1].checked){
     //reverse button pressed
@@ -146,13 +147,14 @@ printButton.onclick=function(){
     list.changePrint("reverse");
     listContents=list.print();
     document.getElementById("printedList").innerHTML=listContents;
+    document.getElementById("printList").style.display="none";  //hide print form
   }
   else{
     //user did not press either button
     alert("please select a direction");
+    printHandler(); //make print form visible again
   }
   //document.getElementByID("printedList").style.display="none";
-  document.getElementById("printList").style.display="none";  //hide print form
   //document.getElementById("frm1").style.display="block"; //make main form visible again
 }
 
