@@ -139,6 +139,7 @@ printButton.onclick=function(){
     list.changePrint("forward");
     listContents=list.print();
     document.getElementById("printedList").innerHTML=listContents;
+    document.getElementById("printList").style.display="none";  //hide print form
   }
   else if(print.elements[1].checked){
     //reverse button pressed
@@ -146,13 +147,14 @@ printButton.onclick=function(){
     list.changePrint("reverse");
     listContents=list.print();
     document.getElementById("printedList").innerHTML=listContents;
+    document.getElementById("printList").style.display="none";  //hide print form
   }
   else{
     //user did not press either button
     alert("please select a direction");
+    printHandler(); //make print form visible again
   }
   //document.getElementByID("printedList").style.display="none";
-  document.getElementById("printList").style.display="none";  //hide print form
   //document.getElementById("frm1").style.display="block"; //make main form visible again
 }
 
