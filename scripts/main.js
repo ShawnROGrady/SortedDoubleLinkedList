@@ -83,6 +83,7 @@ choiceButton.onclick=function main(){
     alert("please enter a valid choice");
     document.getElementById("frm1").style.display="block"; //make main form visible again
   }
+  x.elements[0].value=""; //clear form
 }
 
 function addHandler(){
@@ -114,6 +115,7 @@ insertButton.onclick=function(){
   list.insert(Number(userInput));
   document.getElementById("addNode").style.display="none";  //hide add form
   document.getElementById("frm1").style.display="block"; //make main form visible again
+  insert.elements[0].value=""; //clear form
 }
 
 removeButton.onclick=function(){
@@ -122,6 +124,7 @@ removeButton.onclick=function(){
   list.remove(Number(userInput));
   document.getElementById("removeNode").style.display="none";  //hide remove form
   document.getElementById("frm1").style.display="block"; //make main form visible again
+  remove.elements[0].value=""; //clear form
 }
 
 searchButton.onclick=function(){
@@ -136,6 +139,7 @@ searchButton.onclick=function(){
   }
   document.getElementById("searchNode").style.display="none";  //hide search form
   document.getElementById("frm1").style.display="block"; //make main form visible again
+  search.elements[0].value=""; //clear form
 }
 
 printButton.onclick=function(){
