@@ -25,6 +25,7 @@ import {sortedDLL} from "./sortedDLL.js";
 
 var list= sortedDLL();  //the sorted doubly linked list
 
+//the various buttons:
 var startButton = document.getElementById('start');
 var choiceButton=document.getElementById('enter');
 var insertButton=document.getElementById("insertEnter");
@@ -33,16 +34,15 @@ var searchButton=document.getElementById("searchEnter");
 var printButton=document.getElementById("printEnter");
 
 startButton.onclick = function() {
-  startButton.style.visibility="hidden";
+  startButton.style.display="none";
   document.getElementById("frm1").style.visibility="visible";
 }
 
 choiceButton.onclick=function main(){
-  var userInput;
   var x=document.getElementById("frm1");
   var choice=x.elements[0].value;
   //alert(choice);
-  document.getElementById("frm1").style.visibility="hidden";
+  document.getElementById("frm1").style.display="none";
 
   var userInput;
   if(choice==1){
@@ -74,31 +74,35 @@ choiceButton.onclick=function main(){
 function addHandler(){
   //alert("hello");
   document.getElementById("addNode").style.visibility="visible";
+  document.getElementById("addNode").style.display="block";
 }
 function removeHandler(){
   document.getElementById("removeNode").style.visibility="visible";
+  document.getElementById("removeNode").style.display="block";
 }
 function searchHandler(){
   document.getElementById("searchNode").style.visibility="visible";
+  document.getElementById("searchNode").style.display="block";
 }
 function printHandler(){
   document.getElementById("printList").style.visibility="visible";
+  document.getElementById("printList").style.display="block";
 }
 
 insertButton.onclick=function(){
   var insert=document.getElementById('addNode');
   var userInput=insert.elements[0].value;
   list.insert(Number(userInput));
-  document.getElementById("addNode").style.visibility="hidden";  //hide add form
-  document.getElementById("frm1").style.visibility="visible"; //make main form visible again
+  document.getElementById("addNode").style.display="none";  //hide add form
+  document.getElementById("frm1").style.display="block"; //make main form visible again
 }
 
 removeButton.onclick=function(){
   var remove=document.getElementById('removeNode');
   var userInput=remove.elements[0].value;
   list.remove(Number(userInput));
-  document.getElementById("removeNode").style.visibility="hidden";  //hide remove form
-  document.getElementById("frm1").style.visibility="visible"; //make main form visible again
+  document.getElementById("removeNode").style.display="none";  //hide remove form
+  document.getElementById("frm1").style.display="block"; //make main form visible again
 }
 
 searchButton.onclick=function(){
@@ -111,8 +115,8 @@ searchButton.onclick=function(){
     //not in list
     alert(userInput+" is not in the list");
   }
-  document.getElementById("searchNode").style.visibility="hidden";  //hide search form
-  document.getElementById("frm1").style.visibility="visible"; //make main form visible again
+  document.getElementById("searchNode").style.display="none";  //hide search form
+  document.getElementById("frm1").style.display="block"; //make main form visible again
 }
 
 printButton.onclick=function(){
@@ -131,6 +135,6 @@ printButton.onclick=function(){
     //user did not press either button
     alert("please select a direction");
   }
-  document.getElementById("printList").style.visibility="hidden";  //hide print form
-  document.getElementById("frm1").style.visibility="visible"; //make main form visible again
+  document.getElementById("printList").style.display="none";  //hide print form
+  document.getElementById("frm1").style.display="block"; //make main form visible again
 }
